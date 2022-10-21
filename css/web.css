@@ -1,0 +1,270 @@
+body {
+  width: 100%;
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: rgb(232, 232, 232);
+  line-height: 1.5;
+  background-color: #fff;
+  /* height: 1000px; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+} 
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+  /* 圖片垂直對齊該行元素的最高位置。這裡讓圖片中間不會預設多一個小縫隙 (這裡主要用在下面的project img)*/
+}
+
+.app {
+  height: 45px;
+  /* 第一行要先給出一個空間 */
+
+}
+
+.app ul li {
+  float: left;
+  height: 45px;
+  line-height: 45px;
+  /* 給符合大小的行高，文字或圖片就會剛好在中間線上放置，文字的垂直居中比較簡單，依照框架多大、設定跟他一樣的行高，自救會水平擺在中間 */
+  background-color: #37393c;
+  text-align: center;
+  /* 再水平居中 */
+
+}
+
+.app ul :nth-child(1) {
+  width: 8%;
+}
+
+.app ul :nth-child(1) img {
+  width: 8px;
+  margin-bottom: 5px;
+  vertical-align: middle;
+  /* 垂直-居中 */
+
+}
+
+.app ul :nth-child(2) {
+  width: 10%;
+}
+
+.app ul :nth-child(2) img {
+  width: 25px;
+  /* vertical-align: middle; */
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.app ul :nth-child(3) {
+  width: 57%;
+}
+
+.app ul :nth-child(4) {
+  width: 25%;
+  background-color: #c83f08;
+  font-size: 8px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* 搜尋 */
+.search {
+  height: 44px;
+  position: relative;
+  position: fixed;
+  /* 定為相對位置，絕對位置一定要以這個相對位置為基礎去訂，否則就會以整個頁面為基準 */
+  /* 而後改為fixed，因為頁面滑動時他會先固定一下才往上跑不見，因此這邊要改為fixed */
+  /* 這裡滿玄的，fixed替代relative後，看見結果寬度黏在一起了，所以只要多設定最大最小長寬與符合頁面100%，就能夠解決長寬不見的問題，有一種不用想那麼多元素相互干擾的問題，先調整就對了，看見結果再依照結果的錯誤直接地去調整對應錯誤的地方。 */
+  overflow: hidden;
+  min-width: 320px;
+  max-width: 640px;
+  width: 100%;
+}
+
+.search-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-color: rgb(255, 141, 162); */
+  width: 40px;
+  height: 44px;
+}
+
+.search-btn::before {
+  content: "";
+  /* content屬性還是要有，雖然在這是放圖片 */
+  display: block;
+  /* before/after是偽元素，屬於行內元素，所以要在這用display:block;讓他變成帶有區塊元素的屬性 */
+  width: 20px;
+  height: 18px;
+  background: url(../img/menu-02.png) no-repeat;
+  background-size: 20px 18px;
+  /* 將圖片設定為這個大小 */
+  margin: 13px 0 0 14px;
+}
+
+.search-login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 44px;
+  /* background-color: #521d59; */
+  color: #fff;
+  line-height: 44px;
+  font-size: 15px;
+
+}
+
+.search-inside {
+  position: relative;
+  height: 30px;
+  /* 可以訂高度，寬度不能定，因為這個欄位要隨著頁面縮放而更改寬度 */
+  background-color: #fff;
+  border-radius: 15px;
+  margin: 0 50px;
+  justify-items: center;
+  margin-top: 7px;
+  /* margin-top會將父級元素一起帶下來(外邊距合併)(容易發生在非浮動的父子區塊)，所以要在父級加一個overflow:hidden;來解除坍塌 */
+
+}
+
+.LP {
+  /* 直接做定位即可 */
+  width: 55px;
+  height: 30px;
+  position: absolute;
+  left: 14px;
+  font-size: 12px;
+  color: #b7b7b7;
+  margin-top: 6px;
+  /* background:url(../img/dot-03.png); */
+  /* background-size: 20px 20px; */
+}
+
+.LP::after {
+  content: "";
+  position: absolute;
+  /* 相對LP為子級 */
+  left: 43px;
+  /* 因為定位～還是要定義 */
+  top: 2px;
+  display: block;
+  width: 1px;
+  height: 15px;
+  background-color: rgb(144, 144, 144);
+  
+}
+
+.sou {
+  position: absolute;
+  top: 10px;
+  left: 69px;
+  width: 11px;
+  height: 11px;
+  background-color: #c83f08;
+  background: url(../upload/icon合集-11.png)no-repeat;
+  background-size: 11px 11px;
+}
+
+.slider img {
+  width: 100%;
+}
+
+.project {
+  border-radius: 10px 10px 0 0;
+  margin-top: 5px;
+  height: 80px;
+  overflow: hidden;
+  /* overflow在這裡不只幫我切圖，包含圓角也是 */
+}
+
+.project img {
+  width: 100%;
+  /* min-width: 320px;
+  max-width: 640px; */
+  /* 範例是將每張範例是將每張照片改33.33%，在用浮動並排 */
+  /* 最大最小寬幅父級有定義了，這裡不需多定義 */
+}
+
+.nav {
+  padding-top: 10px;
+  width: 100%;
+  float: left;
+}
+.nav a {
+  float: left;
+  width: 20%;
+  text-align: center;
+  font-size: 8px ;
+  color: #666;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.nav a img {
+  width: 20px;
+  margin: 5px 0 5px 0;
+}
+
+.nav a span {
+  /* 要用display:block;轉為區塊元素，否則會在同一行裡。當然如果用<p>也可以直接 */
+  display: block;
+}
+
+.news {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.news a {
+  float: left;
+  box-sizing: border-box;
+  /* 用這種盒子模型，他會自動把margin\padding\border算進原本大小的盒子內，如此一來就算三個盒子浮動相加為100%，再加上border也不會跳下一行 */
+  overflow: hidden;
+}
+.news a img {
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+.news a:nth-child(1){
+  width: 49%;
+  border-left: 4px solid #fff;
+
+  /* height: 94px; */
+}
+/* n+2就是從第一項+2＝2開始算，這裡就會將第二第三項選入（沒有第四，跳過） */
+.news a:nth-child(n+2){
+  width: 25%;
+  border-left: 3.5px solid #fff;
+  /* height: 94px; */
+}
+
+
+/* .news a :nth-child(2),
+.news a :nth-child(3){
+  width: 25%;
+} 也可以這樣寫*/
+
+
+/* .news a :nth-child(2){
+  width: 25%;
+}
+.news a :nth-child(3){
+  width: 25%;
+} 最一般來說的寫法就是一項一項寫 */
+
+.background{
+  background-color: #fff;
+  width: 100%;
+  height: 5px;
+}
